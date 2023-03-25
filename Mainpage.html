@@ -1,0 +1,222 @@
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+		<title>Main page and Query form</title>
+
+		<link  rel="stylesheet"  href="main_styles.css">
+		
+		</head>
+		<body>
+			
+			<div class="main" id="section1">
+				<h1>Football</h1>
+					<br><br>
+					<p id="para1"> Football is the world’s most popular ball game in numbers of participants
+						and spectators. Simple in its principal rules and essential equipment, 
+						the sport can be played almost anywhere, from official football playing 
+						fields (pitches) to gymnasiums, streets, school playgrounds, parks, or beaches. 
+						Football’s governing body, the Fédération Internationale de Football Association (FIFA),
+						estimated that at the turn of the 21st century there were approximately 250
+						million football players and over 1.3 billion people “interested” in football;
+						in 2010 a combined television audience of more than 26 billion watched football’s
+						premier tournament, the quadrennial month-long World Cup finals.</p>
+						
+					<br><br>
+					<h3 id="h3a">Content Navigations..</h3>
+					
+					
+					
+					<ul id="list">
+                        <li><a href="#section2">Query form</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="quiz_page.html">Quiz</a></li>
+                        <li><a href="student_details.html">Student details</a></li>
+                        <li><a href="sitemap.html">Navigation via SVG diagram</a></li>
+                        <li><a href="thumbnails.html">Gallery</a></li>
+                        <li><a href="about_page.html">Extras</a></li>
+                    </ul> 
+							
+				
+				
+			</div>
+
+					<div class="main" id="section2">
+						<h2>Query form</h2>
+						
+						<br><br>
+						<form>
+				<fieldset id="myform1" style="border:none" >
+					<label for="name"> Enter your name here:</label>
+					<input type="text" name="name" id="name"><br>
+
+					<br><br>
+
+					<label for="email"> Enter your email here:</label>
+					<input type="text" name="email" id="email" >
+
+					<br><br>
+
+					<p>choose from here:</p>
+					  <input type="radio" id="delivery" name="theame" value="delivery">
+					  <label for="delivery">Delivery </label><br>
+					  <input type="radio" id="cost" name="theame" value="cost">
+					  <label for="cost">Cost</label><br>
+					  <input type="radio" id="seller" name="theame" value="Seller">
+					  <label for="seller">Seller</label>
+
+					<br><br>
+
+					<label for="details"> Enter your query details here:</label>
+					<input type="text" name="details" id="details"><br>
+
+					<br>
+
+					<input type="button" value="view query" name="button1" class="butts" onclick="validation(this.form);">
+					<input type="button" value="check" name="button2" class="butts"
+						onclick="hideform(this.form);sendfun();radiofun(this.form);">
+				</fieldset>
+
+				<fieldset id="myform2" style="display:none; border:none;">
+					<p>name:</p>
+					<p id="txtname2"></p><br>
+					<p>email:</p>
+					<p id="txtemail2"></p><br>
+					<p >selected theame:</p>
+					<p id="txttheame2"></p><br>
+					<p>details:</p>
+					<p id="txtdetails2"></p><br>
+					<input type="button" value="send" name="button3" class="butts" id="buttsend1" onclick="sendMail(this.form)">
+					<input type="button" value="edit" name="button4" class="butts" onclick="editing(this.form);goingback(this.form);">
+				</fieldset>
+			</form>
+			
+			<script>
+			
+				//this will validate the unfilled textfields.
+					function validation(myform) {
+
+					let val1 = myform.name.value;
+					if (val1 == "") {
+						alert("name must be filled out");
+					}
+
+					let val2 = myform.email.value;
+
+					if (val2 == "") {
+						alert("email must be filled out");
+					}
+
+					let val3 = myform.details.value;
+
+					if (val3 == "") {
+						alert("Query details should be filled out");
+					}
+				}
+			
+			
+			//when pressing the edit button, text field values will get replaced by empty strings.
+				function editing(myform) {
+					myform.name.value = "";
+
+					myform.email.value = "";
+
+					myform.details.value = "";
+				}
+			
+			//when the 1st part of the form is visible(id=myform1),the 2nd  part(id=myform2) of the form is not visible. 
+				function hideform(myform) {
+					if (myform.name.value != "" && myform.email.value != "" && myform.details.value != "") {
+						document.getElementById("myform1").style.display = "none";
+						document.getElementById("myform2").style.display = "block";
+					}
+					else {
+						document.getElementById("myform1").style.display = "block";
+
+					}
+				}
+						
+						
+						
+				const txtname = document.getElementById("name");
+				const outname = document.getElementById("txtname2");
+				const txtemail = document.getElementById("email");
+				const outemail = document.getElementById("txtemail2");
+				const txtdetails = document.getElementById("details");
+				const outdetails = document.getElementById("txtdetails2");
+				const buttsend = document.getElementById("buttsend1");
+
+				
+				const selectedTheme = document.getElementById("txttheame2");
+				
+
+				function sendfun() {
+					outname.innerHTML = txtname.value;
+					outemail.innerHTML = txtemail.value;
+					outdetails.innerHTML = txtdetails.value;
+				}
+
+				function getRadioValue(radioArray) {
+					for (let i = 0; i < radioArray.length; i++) {
+						if (radioArray[i].checked) {
+							return radioArray[i].value;
+						}
+					}
+					return "";
+				}
+
+
+				//this will take the value from the relevent radio button selected and pass the corresponding value.
+				function radiofun(myform) {
+					let selectedradio = getRadioValue(myform.theame);
+					console.log(selectedradio);
+					
+					selectedTheme.innerHTML = selectedradio;
+
+				}
+
+				
+				function goingback(myform) {
+					document.getElementById("myform1").style.display = "block";
+					document.getElementById("myform2").style.display = "none";
+				}
+				
+				//passing the filled textbar values into the body of the email.
+				function sendMail(myform) {
+					var link = "mailto:naveen.20210438@iit.ac.lk"
+							 + "?cc=anuradasenaratne23@gmail.com"
+							 + "&subject=" + encodeURIComponent("Query form")
+							 + "&body=" + encodeURIComponent("Name:"+document.getElementById("txtname2").innerHTML+
+															"\n email:"+document.getElementById("txtemail2").innerHTML+
+															"\n selected theame:"+document.getElementById("txttheame2").innerHTML+
+															"\n query details:"+document.getElementById("txtdetails2").innerHTML)
+							 ;
+					  
+					  window.location.href=link;
+					
+					
+					
+				}
+				
+				
+
+
+				
+				
+				
+				
+			</script>
+						
+							
+			
+			
+				
+				
+				
+			<br><br>
+				
+				<a  href="#section1">Home</a>
+				<a href="file:///C:/Users/Anurada%20Senaratne/Documents/Note%20pad++%20directry/form.html" target="_blank" style="padding-left:700px" >Page editor</a>
+			</div>
+
+		</body>
+	</html>

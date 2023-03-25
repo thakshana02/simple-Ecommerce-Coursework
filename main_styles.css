@@ -1,0 +1,153 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@700&display=swap');
+	 
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+
+#section1 {
+  height: 720px;
+  
+  background-image:url("back1.jpg");
+  background-size:cover;
+  padding:0;
+  margin:none;
+  border:0;
+  
+}
+
+#section2 {
+  height: 780px;
+  background-image:url("back2.jpg");
+  background-size:cover;
+  padding:0;
+  margin:0;
+}
+
+* {
+	margin:0;
+	padding:0;
+
+}
+
+h2{	font-size:70px;
+	color:white;
+	text-align:centre;
+	font-family: 'Cinzel', serif;
+	
+	
+}
+h1{
+	font-size:100px;
+	color:white;
+	padding-left:570px;
+	font-family: 'Cinzel', serif;
+	
+	
+}
+
+#para1 {
+	padding-left:90px;
+	padding-right:90px;
+	color:white;
+	font-family: 'Bebas Neue', cursive;
+	font-size: 22px;
+	font-weight:10px;
+	
+	
+	
+}
+
+#h3a {
+	color:white;
+	font-family: 'Cinzel', serif;
+	padding-left:511px;
+	font-size:40px;
+	
+	
+}
+
+
+
+li a {
+  display:block;
+  color: white;
+  text-align: center;
+  padding: 8px;
+  text-decoration: none;
+  font-family: 'Bebas Neue', cursive;
+  font-size:25px;
+}
+
+li a:hover {
+  background-color: #111111;
+}
+
+#list {
+	
+	display:inline;
+	
+}
+
+form{
+	color:white;
+	font-family: 'Bebas Neue', cursive;
+	font-size:25px;
+	
+	padding-left:50px;
+	
+	
+	
+	
+	
+	
+}
+
+ a {
+	
+	display:block;
+	color: white;
+	
+	padding-left: 15px;
+	text-decoration: none;
+	font-family: 'Bebas Neue', cursive;
+	font-size:40px;
+	
+	
+}
+
+a:hover{
+	 background-color: #111111;
+	 transition-duration: 0.4s;
+	
+	
+}
+
+
+.butts{
+        display: inline-block;
+        background-color: transparent;
+        border-radius: 10px;
+        border: 4px double #cccccc;
+        color: #eeeeee;
+        text-align: center;
+        font-size: 19px;
+        padding: 10px;
+        width: 120px;
+		font-family:'Bebas Neue', cursive;
+		
+		
+}
+
+.butts:hover {
+  background-color: black;
+  color: white;
+  transition-duration: 0.4s;
+}
